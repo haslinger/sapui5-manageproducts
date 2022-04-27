@@ -10,7 +10,7 @@
         toggleHeaderOnTitleClick="false">
 
         <semantic:titleHeading>
-            <Title
+            <Title id="_IDGenTitle1"
                 text="{i18n>worklistTitle}"
                 level="H2"/>
         </semantic:titleHeading>
@@ -24,6 +24,9 @@
                     sorter: {
                         path: 'ProductID',
                         descending: false
+                    },
+                    parameters: {
+                      expand: 'ToSupplier'
                     }
                 }"
                 noDataText="{worklistView>/tableNoDataText}"
@@ -33,18 +36,18 @@
                 updateFinished=".onUpdateFinished">
 
                 <headerToolbar>
-                    <OverflowToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1">
                         <Title
                             id="tableHeader"
                             text="{worklistView>/worklistTableTitle}"
                             level="H3"/>
-                        <ToolbarSpacer />
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
                         <SearchField
                             id="searchField"
                             tooltip="{i18n>worklistSearchTooltip}"
                             search=".onSearch">
                             <layoutData>
-                                <OverflowToolbarLayoutData
+                                <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1"
                                     maxWidth="200px"
                                     priority="NeverOverflow"/>
                             </layoutData>
@@ -56,19 +59,36 @@
                     <Column id="nameColumn">
                         <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
                     </Column>
+                    <Column 
+                      id="supplierNameColumn"
+                      demandPopin="true"
+                      minScreenWidth="Tablet">
+                      <Text text="{i18n>tableSupplierColumnTitle}"/>
+                    </Column>
+                    <Column id="webAddressColumn"
+                      demandPopin="false"
+                      minScreenWidth="Tablet">
+                      <Text text="{i18n>tableSupplierWebAddressColumnTitle}"/>
+                    </Column>
                     <Column id="unitNumberColumn" hAlign="End">
                         <Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
                     </Column>
                 </columns>
 
                 <items>
-                    <ColumnListItem
+                    <ColumnListItem id="_IDGenColumnListItem1"
                         type="Navigation"
                         press=".onPress">
                         <cells>
-                            <ObjectIdentifier
-                                title="{ProductID}"/>
-                            <ObjectNumber
+                            <ObjectIdentifier id="_IDGenObjectIdentifier1"
+                                title="{ProductID}"
+                                text="{Name}"/>
+                            <Text text="{SupplierName}"/>
+                            <Link
+                              text="{ToSupplier/WebAddress}"
+                              href="{ToSupplier/WebAddress}"
+                              target="_blank"/>
+                            <ObjectNumber id="_IDGenObjectNumber1"
                                 number="{
                                     path: 'Price',
                                     formatter: '.formatter.numberUnit'

@@ -12,18 +12,24 @@
         busyIndicatorDelay="{objectView>/delay}">
 
         <semantic:titleHeading>
-            <Title
+            <Title id="_IDGenTitle1"
                 text="{ProductID}"
                 level="H2"/>
         </semantic:titleHeading>
 
         <semantic:headerContent>
-            <ObjectNumber
-                number="{
+          <ObjectHeader
+              id="objectHeader"
+              title="{ProductID}"
+              number="{
                     path: 'Price',
                     formatter: '.formatter.numberUnit'
-                }"
-                unit="{CurrencyCode}" />
+              }"
+              numberUnit="{CurrencyCode}">
+              <attributes>
+                <ObjectAttribute id="_IDGenObjectAttribute1" text="{Name}"/>
+              </attributes>
+            </ObjectHeader>
         </semantic:headerContent>
 
         <semantic:sendEmailAction>
