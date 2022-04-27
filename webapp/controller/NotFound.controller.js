@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (BaseController) {
     "use strict";
 
-    return BaseController.extend("opensap.manageproducts.manageproducts.controller.NotFound", {
+    return BaseController.extend("opensap.manageproducts.controller.NotFound", {
 
         /**
          * Navigates to the worklist when the link is pressed

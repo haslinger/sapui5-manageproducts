@@ -3,7 +3,7 @@ sap.ui.define([
 ], function(Opa5) {
 	"use strict";
 
-	return Opa5.extend("opensap.manageproducts.manageproducts.test.integration.pages.Common", {
+	return Opa5.extend("opensap.manageproducts.test.integration.pages.Common", {
 
 
 		theUnitNumbersShouldHaveTwoDecimals : function (sControlType, sViewName, sSuccessMsg, sErrMsg) {

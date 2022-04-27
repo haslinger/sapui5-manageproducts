@@ -44,10 +44,10 @@ modules:
     build-result: resources
     requires:
     - artifacts:
-      - opensapmanageproductsmanageproducts.zip
-      name: opensapmanageproductsmanageproducts
+      - opensapmanageproducts.zip
+      name: opensapmanageproducts
       target-path: resources/
-- name: opensapmanageproductsmanageproducts
+- name: opensapmanageproducts
   type: html5
   path: .
   build-parameters:

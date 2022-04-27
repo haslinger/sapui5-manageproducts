@@ -40,7 +40,7 @@ sap.ui.define([
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
 									"title": "Manage Products",
-									"targetURL": "#opensapmanageproductsmanageproducts-display"
+									"targetURL": "#opensapmanageproducts-display"
 								}
 							}]
 						}]
@@ -51,8 +51,8 @@ sap.ui.define([
 				"adapter": {
 					"config": {
 						"inbounds": {
-							"opensapmanageproductsmanageproducts-display": {
-								"semanticObject": "opensapmanageproductsmanageproducts",
+							"opensapmanageproducts-display": {
+								"semanticObject": "opensapmanageproducts",
 								"action": "display",
 								"description": "A Fiori application.",
 								"title": "Manage Products",
@@ -61,7 +61,7 @@ sap.ui.define([
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=opensap.manageproducts.manageproducts",
+									"additionalInformation": "SAPUI5.Component=opensap.manageproducts",
 									"url": sap.ui.require.toUrl("opensap/manageproducts/manageproducts")
 								}
 							}

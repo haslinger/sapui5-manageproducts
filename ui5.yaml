@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: opensap.manageproducts.manageproducts
+  name: opensap.manageproducts
 type: application
 server:
   customMiddleware:
@@ -29,5 +29,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: opensap.manageproducts.manageproducts
+        component: opensap.manageproducts
         ui5Theme: sap_fiori_3

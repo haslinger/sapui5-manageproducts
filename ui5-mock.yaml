@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: opensap.manageproducts.manageproducts
+  name: opensap.manageproducts
 type: application
 server:
   customMiddleware:

@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (UIComponent, Device, models, ErrorHandler) {
     "use strict";
 
-    return UIComponent.extend("opensap.manageproducts.manageproducts.Component", {
+    return UIComponent.extend("opensap.manageproducts.Component", {
 
         metadata : {
             manifest: "json"

@@ -8,7 +8,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "opensap.manageproducts.manageproducts.view.",
+		viewNamespace: "opensap.manageproducts.view.",
 		autoWait: true
 	});
 

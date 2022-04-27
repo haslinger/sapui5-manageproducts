@@ -1,7 +1,7 @@
 {
     "_version": "1.28.0",
     "sap.app": {
-        "id": "opensap.manageproducts.manageproducts",
+        "id": "opensap.manageproducts",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -65,7 +65,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "opensap.manageproducts.manageproducts.i18n.i18n"
+                    "bundleName": "opensap.manageproducts.i18n.i18n"
                 }
             },
             "": {
@@ -81,7 +81,7 @@
             "config": {
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
-                "viewPath": "opensap.manageproducts.manageproducts.view",
+                "viewPath": "opensap.manageproducts.view",
                 "controlId": "app",
                 "controlAggregation": "pages",
                 "bypassed": {
@@ -131,7 +131,7 @@
             }
         },
         "rootView": {
-            "viewName": "opensap.manageproducts.manageproducts.view.App",
+            "viewName": "opensap.manageproducts.view.App",
             "type": "XML",
             "async": true,
             "id": "app"

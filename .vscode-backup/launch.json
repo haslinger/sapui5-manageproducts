@@ -72,7 +72,7 @@
       ],
       "args": [
         "--open",
-        "test/flpSandbox.html#opensapmanageproductsmanageproducts-display"
+        "test/flpSandbox.html#opensapmanageproducts-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
@@ -101,7 +101,7 @@
         "--config",
         "./ui5-mock.yaml",
         "--open",
-        "test/flpSandbox.html#opensapmanageproductsmanageproducts-display"
+        "test/flpSandbox.html#opensapmanageproducts-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",
@@ -129,7 +129,7 @@
         "--config",
         "./ui5-local.yaml",
         "--open",
-        "test/flpSandbox.html#opensapmanageproductsmanageproducts-display"
+        "test/flpSandbox.html#opensapmanageproducts-display"
       ],
       "console": "internalConsole",
       "internalConsoleOptions": "openOnSessionStart",

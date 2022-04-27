@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (BaseController, JSONModel, History, formatter) {
     "use strict";
 
-    return BaseController.extend("opensap.manageproducts.manageproducts.controller.Object", {
+    return BaseController.extend("opensap.manageproducts.controller.Object", {
 
         formatter: formatter,
 
