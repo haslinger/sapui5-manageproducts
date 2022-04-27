@@ -2,7 +2,8 @@
     controllerName="opensap.manageproducts.manageproducts.controller.Object"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:semantic="sap.f.semantic">
+    xmlns:semantic="sap.f.semantic"
+    xmlns:form="sap.ui.layout.form">>
 
     <semantic:SemanticPage
         id="page"
@@ -21,6 +22,7 @@
           <ObjectHeader
               id="objectHeader"
               title="{ProductID}"
+              responsive="true"
               number="{
                     path: 'Price',
                     formatter: '.formatter.numberUnit'
@@ -30,12 +32,64 @@
                 <ObjectAttribute id="_IDGenObjectAttribute1" text="{Name}"/>
               </attributes>
             </ObjectHeader>
+
+            <Panel id="_IDGenPanel1"
+              class="sapUiResponsiveMargin"
+              width="auto"
+              headerText="{i18n>productTitle}"
+              expandable="{device>/system/phone}"
+              expanded="true">
+              <content>
+                <form:SimpleForm id="objectForm">
+                  <form:content>
+                    <Label id="_IDGenLabel1" text="{i18n>productCategoryLabel}"/>
+                    <Text id="_IDGenText1" text="{Category}"/>
+                    <Label id="_IDGenLabel2" text="{i18n>productNameLabel}"/>
+                    <Text id="_IDGenText2" text="{Name}"/>
+                    <Label id="_IDGenLabel3" text="{i18n>productWeightLabel}"/>
+                    <Text id="_IDGenText3" text="{= ${WeightMeasure} + ' ' + ${WeightUnit}}"/>
+                  </form:content>
+                </form:SimpleForm>
+              </content>
+            </Panel>
+
+            <Panel id="_IDGenPanel2"
+              class="sapUiResponsiveMargin"
+              width="auto"
+              headerText="{i18n>supplierTitle}"
+              expandable="{device>/system/phone}"
+              expanded="false">
+              <content>
+                <List id="supplierList">
+                  <items>
+                    <StandardListItem id="_IDGenStandardListItem1" icon="sap-icon://building" title="{ToSupplier/CompanyName}"/>
+                    <StandardListItem id="_IDGenStandardListItem2" icon="sap-icon://email" title="{ToSupplier/EmailAddress}"/>
+                    <StandardListItem id="_IDGenStandardListItem3" icon="sap-icon://world" title="{ToSupplier/WebAddress}"/>
+                    <StandardListItem id="_IDGenStandardListItem4" icon="sap-icon://phone" title="{ToSupplier/PhoneNumber}"/>
+                    <StandardListItem id="_IDGenStandardListItem5" icon="sap-icon://map" title="{ToSupplier/Address/City}"/>
+                  </items>
+                </List>
+              </content>
+            </Panel>
+            
+            <Panel id="_IDGenPanel3"
+              class="sapUiResponsiveMargin sapUiHideOnPhone"
+              width="auto"
+              headerText="{i18n>mapTitle}">
+              <Image id="_IDGenImage1" src="{
+                parts: [
+                  'ToSupplier/Address/Street',
+                  'ToSupplier/Address/PostalCode',
+                  'ToSupplier/Address/City',
+                  'ToSupplier/Address/Country'
+                ],
+                formatter: '.formatter.formatMapUrl'
+              }" />
+            </Panel>
         </semantic:headerContent>
 
         <semantic:sendEmailAction>
             <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
         </semantic:sendEmailAction>
-
     </semantic:SemanticPage>
-
 </mvc:View>
