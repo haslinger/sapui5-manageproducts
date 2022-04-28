@@ -2,7 +2,8 @@
     controllerName="opensap.manageproducts.controller.Worklist"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:semantic="sap.f.semantic">
+    xmlns:semantic="sap.f.semantic"
+    xmlns:l="sap.ui.layout">
 
     <semantic:SemanticPage
         id="page"
@@ -114,7 +115,9 @@
                             <cells>
                                 <ObjectIdentifier id="_IDGenObjectIdentifier1"
                                     title="{ProductID}"
-                                    text="{Name}"/>
+                                    text="{Name}"
+                                    titleActive="true" 
+				                            titlePress="onShowDetailPopover"/>
                                 <Text id="_IDGenText3" text="{SupplierName}"/>
                                 <Link id="_IDGenLink1"
                                   text="{ToSupplier/WebAddress}"
@@ -133,7 +136,6 @@
               </content>
             </IconTabBar>
         </semantic:content>
-
         <semantic:sendEmailAction>
             <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
         </semantic:sendEmailAction>
