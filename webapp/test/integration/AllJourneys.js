@@ -1,6 +1,7 @@
 sap.ui.define([
 	"sap/ui/test/Opa5",
 	"./arrangements/Startup",
+  "opensap/manageproducts/test/integration/pages/NewProduct",
 	"./WorklistJourney",
 	"./NavigationJourney"
 ], function (Opa5, Startup) {
