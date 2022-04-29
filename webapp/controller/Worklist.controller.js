@@ -59,22 +59,31 @@ sap.ui.define([
          * @param {sap.ui.base.Event} oEvent the update finished event
          * @public
          */
-			/**
-			 * Event handler when a filter tab gets pressed
-			 * @param {sap.ui.base.Event} oEvent the filter tab event
-			 * @public
-			 */
-        onQuickFilter: function(oEvent) {
-          var sKey = oEvent.getParameter("key"),
-            oFilter = this._mFilters[sKey],
-            oTable = this.byId("table"),
-            oBinding = oTable.getBinding("items");
-          if (oFilter) {
-            oBinding.filter(oFilter);
-          } else {
-            oBinding.filter([]);	
-          }
-        },
+
+         	/**
+           * Event handler when the add button gets pressed
+           * @public
+           */
+          onAdd: function() {
+            this.getRouter().navTo("add");
+          },
+          
+          /**
+           * Event handler when a filter tab gets pressed
+           * @param {sap.ui.base.Event} oEvent the filter tab event
+           * @public
+           */
+          onQuickFilter: function(oEvent) {
+            var sKey = oEvent.getParameter("key"),
+              oFilter = this._mFilters[sKey],
+              oTable = this.byId("table"),
+              oBinding = oTable.getBinding("items");
+            if (oFilter) {
+              oBinding.filter(oFilter);
+            } else {
+              oBinding.filter([]);	
+            }
+          },
 
         onUpdateFinished : function (oEvent) {
             // update the worklist's object counter after the table update
