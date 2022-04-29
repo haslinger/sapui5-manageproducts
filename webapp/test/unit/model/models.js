@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"opensap/manageproducts/manageproducts/model/models",
+	"opensap/manageproducts/model/models",
 	"sap/ui/Device"
 ], function (models, Device) {
 	"use strict";

@@ -62,7 +62,7 @@ sap.ui.define([
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
 									"additionalInformation": "SAPUI5.Component=opensap.manageproducts",
-									"url": sap.ui.require.toUrl("opensap/manageproducts/manageproducts")
+									"url": sap.ui.require.toUrl("opensap/manageproducts")
 								}
 							}
 						}

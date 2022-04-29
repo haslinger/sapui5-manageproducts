@@ -1,8 +1,11 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"opensap/manageproducts/manageproducts/model/formatter"
-], function (formatter) {
+	"opensap/manageproducts/model/formatter",
+  "opensap/manageproducts/test/unit/helper/FakeI18nModel",
+  "sap/ui/thirdparty/sinon",
+  "sap/ui/thirdparty/sinon-qunit"
+], function (formatter, FakeI18n) {
 	"use strict";
 
 	QUnit.module("Number unit");
@@ -34,5 +37,19 @@ sap.ui.define([
 	QUnit.test("Should round a zero", function (assert) {
 		numberUnitValueTestCase.call(this, assert, "0", "0.00");
 	});
+  
+  QUnit.module("Delivery");
+		
+  QUnit.test("Should determine a delivery method based on the weight of a product", function (assert) {
+    var oControllerStub = {
+      getModel: sinon.stub().withArgs("i18n").returns(new FakeI18n({
+        formatterMailDelivery : "mail"
+      }))
+    };
+    var fnIsolatedFormatter = formatter.delivery.bind(oControllerStub);
+    
+    assert.strictEqual(fnIsolatedFormatter("KG", 0.2), "mail");
+    assert.strictEqual(fnIsolatedFormatter("G", 200), "mail");
+  });
 
 });

@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"opensap/manageproducts/manageproducts/test/unit/AllTests"
+		"opensap/manageproducts/test/unit/AllTests"
 	], function () {
 		QUnit.start();
 	});
