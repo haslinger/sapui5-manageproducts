@@ -2,8 +2,9 @@ sap.ui.define([
     "./BaseController",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/routing/History",
-    "../model/formatter"
-], function (BaseController, JSONModel, History, formatter) {
+    "../model/formatter",
+    "sap/m/MessageToast"
+], function (BaseController, JSONModel, History, formatter, MessageToast) {
     "use strict";
 
     return BaseController.extend("opensap.manageproducts.controller.Object", {
@@ -33,7 +34,12 @@ sap.ui.define([
         /* event handlers                                              */
         /* =========================================================== */
 
-
+        onRatingChanged: function(oEvent) {
+          var iValue = oEvent.getParameter("value"),
+            sMessage = this.getResourceBundle().getText("productRatingSuccess", [iValue]);
+          MessageToast.show(sMessage);
+        },
+        
         /**
          * Event handler  for navigating back.
          * It there is a history entry we go one step back in the browser history
