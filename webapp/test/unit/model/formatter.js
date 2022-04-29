@@ -9,8 +9,7 @@ sap.ui.define([
 	"use strict";
 
 	QUnit.module("Number unit");
-
-	function numberUnitValueTestCase(assert, sValue, fExpectedNumber) {
+  function numberUnitValueTestCase(assert, sValue, fExpectedNumber) {
 		// Act
 		var fNumber = formatter.numberUnit(sValue);
 
@@ -38,18 +37,36 @@ sap.ui.define([
 		numberUnitValueTestCase.call(this, assert, "0", "0.00");
 	});
   
-  QUnit.module("Delivery");
+  QUnit.module("Delivery", {
+    before: function () {
+      var oControllerStub = {
+        getModel: sinon.stub().withArgs("i18n").returns(new FakeI18n({
+          formatterMailDelivery : "mail",
+          formatterParcelDelivery : "parcel",
+          formatterCarrierDelivery : "carrier"
+        }))
+      };
+      this.fnIsolatedFormatter = formatter.delivery.bind(oControllerStub);
+    },
+    after: function () {
+      this.fnIsolatedFormatter = null;
+    }
+  });
 		
-  QUnit.test("Should determine a delivery method based on the weight of a product", function (assert) {
-    var oControllerStub = {
-      getModel: sinon.stub().withArgs("i18n").returns(new FakeI18n({
-        formatterMailDelivery : "mail"
-      }))
-    };
-    var fnIsolatedFormatter = formatter.delivery.bind(oControllerStub);
-    
-    assert.strictEqual(fnIsolatedFormatter("KG", 0.2), "mail");
-    assert.strictEqual(fnIsolatedFormatter("G", 200), "mail");
+  QUnit.test("Should determine the mail method based on the weight of a product", function (assert) {
+    assert.strictEqual(this.fnIsolatedFormatter("KG", 0.2), "mail", "A weight of 0.2kg will convert to the mail delivery method");
+    assert.strictEqual(this.fnIsolatedFormatter("G", 200), "mail", "A weight of 200g will convert to the mail delivery method");
+    assert.strictEqual(this.fnIsolatedFormatter("G", -11), "mail", "A weight of -11kg will convert to the mail delivery method");
   });
 
+  QUnit.test("Should determine the parcel method based on the weight of a product", function (assert) {
+    assert.strictEqual(this.fnIsolatedFormatter("G", 500), "parcel", "A weight of 500g will convert to the parcel delivery method");
+    assert.strictEqual(this.fnIsolatedFormatter("KG", 3), "parcel", "A weight of 3kg will convert to the parcel delivery method");
+  });
+
+  QUnit.test("Should determines the carrier method based on the weight of a product", function (assert) {
+    assert.strictEqual(this.fnIsolatedFormatter("KG", 23), "carrier", "A weight of 23kg will convert to the carrier delivery method");
+    assert.strictEqual(this.fnIsolatedFormatter("KG", 5), "carrier", "A weight of 5kg will convert to the carrier delivery method");
+    assert.strictEqual(this.fnIsolatedFormatter("foo", "bar"), "carrier", "Invalid values will convert to the carrier delivery method");
+  });
 });

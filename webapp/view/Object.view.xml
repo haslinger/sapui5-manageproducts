@@ -34,6 +34,15 @@
               <attributes>
                 <ObjectAttribute id="_IDGenObjectAttribute1" text="{Name}"/>
               </attributes>
+              <statuses>
+                <ObjectStatus id="_IDGenObjectStatus1" text="{
+                  parts: [
+                    {path: 'WeightUnit'},
+                    {path: 'WeightMeasure'}
+                  ],
+                  formatter : '.formatter.delivery'
+                }"/>
+              </statuses>
             </ObjectHeader>
 
             <mvc:XMLView id="_IDGenXMLView1" viewName="opensap.manageproducts.view.ProductDetails"/>
